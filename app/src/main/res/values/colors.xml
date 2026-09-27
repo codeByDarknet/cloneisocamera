@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <!-- System palette (dark appearance) -->
+    <color name="ios_yellow">#FFFFD60A</color>
+    <color name="ios_blue">#FF0A84FF</color>
+    <color name="ios_label_secondary">#99EBEBF5</color>
+</resources>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">MyCam</string>
+
+    <!-- Camera -->
+    <string name="mode_photo">PHOTO</string>
+    <string name="mode_video">VIDEO</string>
+    <string name="mode_timelapse">TIME-LAPSE</string>
+    <string name="mode_portrait">PORTRAIT</string>
+    <string name="mode_pano">PANO</string>
+    <string name="night_mode">Night mode</string>
+    <string name="night_on">Night mode on</string>
+    <string name="night_off">Night mode off</string>
+    <string name="natural_light">NATURAL LIGHT</string>
+    <string name="portrait_no_face">No face found: the photo is saved without the effect</string>
+    <string name="processing">Processing…</string>
+    <string name="pano_hint_idle">Tap the shutter, then turn slowly</string>
+    <string name="pano_hint_move">Move continuously</string>
+    <string name="pano_slow_down">Slow down</string>
+    <string name="pano_keep_line">Keep the arrow on the line</string>
+    <string name="pano_too_short">Panorama too short</string>
+    <string name="pano_no_gyro">Panorama needs a gyroscope</string>
+    <string name="flash">Flash</string>
+    <string name="flash_auto">Auto</string>
+    <string name="flash_on">On</string>
+    <string name="flash_off">Off</string>
+    <string name="format">Format</string>
+    <string name="timer">Timer</string>
+    <string name="grid">Grid</string>
+    <string name="video_quality">Video</string>
+    <string name="shutter_sound">Shutter sound</string>
+    <string name="face_detection">Face detection</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="ae_af_lock">AE/AF LOCK</string>
+    <string name="front_unavailable">Front camera unavailable (hardware error)</string>
+    <string name="camera_in_use">The camera is used by another app</string>
+    <string name="camera_error">Camera error, reopening…</string>
+    <string name="no_camera">No camera available</string>
+    <string name="photo_failed">Couldn\'t take the photo</string>
+    <string name="video_failed">Couldn\'t record the video</string>
+    <string name="storage_full">Couldn\'t save to the library</string>
+    <string name="permission_title">Allow camera access</string>
+    <string name="permission_body">MyCam needs the camera to take photos and videos.\nNo ads, no tracking: nothing leaves your phone.</string>
+    <string name="permission_button">Allow</string>
+    <string name="open_settings">Open settings</string>
+    <string name="retake">Retake</string>
+    <string name="use_photo">Use photo</string>
+
+    <!-- Library -->
+    <string name="library">Library</string>
+    <string name="filter_all">All</string>
+    <string name="filter_mycam">MyCam</string>
+    <string name="filter_videos">Videos</string>
+    <string name="filter_favorites">Favorites</string>
+    <plurals name="items_count">
+        <item quantity="one">%d item</item>
+        <item quantity="other">%d items</item>
+    </plurals>
+    <string name="empty_library">No photos or videos</string>
+    <string name="storage_permission">Allow access to your photos to browse your library.</string>
+
+    <!-- Viewer -->
+    <string name="share">Share</string>
+    <string name="delete">Delete</string>
+    <string name="favorite">Favorite</string>
+    <string name="info">Info</string>
+    <string name="back">Back</string>
+    <string name="play">Play</string>
+    <string name="info_name">Name</string>
+    <string name="info_album">Album</string>
+    <string name="info_size">Size</string>
+    <string name="info_resolution">Resolution</string>
+    <string name="info_duration">Duration</string>
+    <string name="info_camera">Camera</string>
+    <string name="info_exposure">Exposure</string>
+    <string name="info_iso">ISO</string>
+    <string name="info_focal">Focal length</string>
+    <string name="info_aperture">Aperture</string>
+
+    <!-- Camera controls panel -->
+    <string name="controls">Camera controls</string>
+    <string name="ctl_flash">Flash</string>
+    <string name="ctl_timer">Timer</string>
+    <string name="ctl_format">Format</string>
+    <string name="ctl_quality">Quality</string>
+    <string name="ctl_grid">Grid</string>
+    <string name="ctl_sound">Sound</string>
+    <string name="ctl_faces">Faces</string>
+
+    <!-- Library header, levels and selection -->
+    <string name="select">Select</string>
+    <string name="cancel">Cancel</string>
+    <string name="filter">Filter</string>
+    <string name="level_years">Years</string>
+    <string name="level_months">Months</string>
+    <string name="level_all">All</string>
+    <string name="select_items">Select Items</string>
+    <string name="camera">Camera</string>
+    <plurals name="selected_count">
+        <item quantity="one">%d item selected</item>
+        <item quantity="other">%d items selected</item>
+    </plurals>
+
+    <!-- Editor -->
+    <string name="edit">Edit</string>
+    <string name="tab_adjust">Adjust</string>
+    <string name="tab_filters">Filters</string>
+    <string name="tab_crop">Crop</string>
+    <string name="reset">Reset</string>
+    <string name="done">Done</string>
+    <string name="discard">Discard</string>
+    <string name="saving">Saving…</string>
+    <string name="edit_saved">Edited copy saved</string>
+    <string name="edit_failed">Couldn\'t save the photo</string>
+    <string name="adj_auto">Auto</string>
+    <string name="adj_exposure">Exposure</string>
+    <string name="adj_brilliance">Brilliance</string>
+    <string name="adj_highlights">Highlights</string>
+    <string name="adj_shadows">Shadows</string>
+    <string name="adj_contrast">Contrast</string>
+    <string name="adj_brightness">Brightness</string>
+    <string name="adj_black_point">Black Point</string>
+    <string name="adj_saturation">Saturation</string>
+    <string name="adj_vibrance">Vibrance</string>
+    <string name="adj_warmth">Warmth</string>
+    <string name="adj_tint">Tint</string>
+    <string name="adj_sharpness">Sharpness</string>
+    <string name="adj_vignette">Vignette</string>
+    <string name="flt_original">Original</string>
+    <string name="flt_vivid">Vivid</string>
+    <string name="flt_vivid_warm">Vivid Warm</string>
+    <string name="flt_vivid_cool">Vivid Cool</string>
+    <string name="flt_dramatic">Dramatic</string>
+    <string name="flt_dramatic_warm">Dramatic Warm</string>
+    <string name="flt_dramatic_cool">Dramatic Cool</string>
+    <string name="flt_mono">Mono</string>
+    <string name="flt_silvertone">Silvertone</string>
+    <string name="flt_noir">Noir</string>
+    <string name="straighten">Straighten</string>
+    <string name="rotate">Rotate</string>
+    <string name="flip">Flip</string>
+    <string name="aspect_free">Freeform</string>
+    <string name="aspect_original">Original</string>
+    <string name="aspect_square">Square</string>
+
+    <!-- Collections -->
+    <string name="collections">Collections</string>
+    <string name="pinned">Pinned</string>
+    <string name="albums">Albums</string>
+    <string name="media_types">Media Types</string>
+    <string name="filter_panoramas">Panoramas</string>
+    <string name="filter_screenshots">Screenshots</string>
+    <string name="filter_screen_recordings">Screen Recordings</string>
+    <string name="no_albums">No albums yet</string>
+</resources>

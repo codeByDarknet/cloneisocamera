@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tag_image_request" type="id" />
+    <item name="tag_media_id" type="id" />
+    <item name="tag_glass_backdrop" type="id" />
+</resources>

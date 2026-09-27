@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Positions that depend on the screen size / window insets are applied in CameraActivity.applyLayout(). -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:clipChildren="false">
+
+    <FrameLayout
+        android:id="@+id/preview_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextureView
+            android:id="@+id/preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Covers the preview with a frozen blurred frame while switching lens/mode, and blinks black on capture. -->
+        <ImageView
+            android:id="@+id/curtain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="1"
+            android:background="@color/black"
+            android:importantForAccessibility="no"
+            android:scaleType="fitXY" />
+
+        <dev.mycam.ui.camera.FrameOverlayView
+            android:id="@+id/frame_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <dev.mycam.ui.camera.FaceOverlayView
+            android:id="@+id/face_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <dev.mycam.ui.camera.FocusIndicatorView
+            android:id="@+id/focus_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <dev.mycam.ui.camera.PanoramaOverlayView
+            android:id="@+id/pano_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- Portrait: shown while a face is in view. -->
+        <dev.mycam.ui.glass.GlassView
+            android:id="@+id/portrait_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="12dp"
+            android:visibility="gone"
+            app:glassStyle="dark">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.06"
+                android:paddingHorizontal="12dp"
+                android:text="@string/natural_light"
+                android:textColor="@color/ios_yellow"
+                android:textSize="12sp" />
+        </dev.mycam.ui.glass.GlassView>
+
+        <TextView
+            android:id="@+id/countdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-thin"
+            android:shadowColor="#80000000"
+            android:shadowRadius="12"
+            android:textColor="@color/white"
+            android:textSize="120sp"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <!-- Top bar: recording time in the middle, the controls pill on the right. -->
+    <FrameLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:clipChildren="false">
+
+        <dev.mycam.ui.glass.GlassView
+            android:id="@+id/recording_pill"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:glassStyle="dark">
+
+            <TextView
+                android:id="@+id/recording_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawablePadding="7dp"
+                android:fontFeatureSettings="tnum"
+                android:fontFamily="sans-serif-medium"
+                android:paddingHorizontal="14dp"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+        </dev.mycam.ui.glass.GlassView>
+
+        <dev.mycam.ui.glass.GlassView
+            android:id="@+id/top_pill"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="14dp"
+            app:glassStyle="dark">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingHorizontal="4dp">
+
+                <!-- Night mode: appears in low light (still photos), tap to turn it off or back on. -->
+                <ImageView
+                    android:id="@+id/night_button"
+                    style="@style/TopPillButton"
+                    android:contentDescription="@string/night_mode"
+                    android:src="@drawable/ic_moon"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/flash_button"
+                    style="@style/TopPillButton"
+                    android:contentDescription="@string/flash"
+                    android:src="@drawable/ic_bolt_slash" />
+
+                <ImageView
+                    android:id="@+id/settings_button"
+                    style="@style/TopPillButton"
+                    android:contentDescription="@string/controls"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_dots" />
+            </LinearLayout>
+        </dev.mycam.ui.glass.GlassView>
+    </FrameLayout>
+
+    <dev.mycam.ui.camera.ZoomControl
+        android:id="@+id/zoom_control"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal" />
+
+    <dev.mycam.ui.camera.ShutterButton
+        android:id="@+id/shutter"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="top|center_horizontal" />
+
+    <!-- Bottom row: last capture, modes, lens flip. -->
+    <FrameLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:clipChildren="false">
+
+        <dev.mycam.ui.glass.GlassView
+            android:id="@+id/thumbnail_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="22dp"
+            android:contentDescription="@string/library"
+            app:glassInteractive="true"
+            app:glassStyle="dark">
+
+            <ImageView
+                android:id="@+id/thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:importantForAccessibility="no"
+                android:scaleType="centerCrop" />
+        </dev.mycam.ui.glass.GlassView>
+
+        <dev.mycam.ui.camera.ModePickerView
+            android:id="@+id/mode_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <dev.mycam.ui.glass.GlassView
+            android:id="@+id/flip_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="22dp"
+            app:glassInteractive="true"
+            app:glassStyle="dark">
+
+            <ImageView
+                android:id="@+id/flip_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_flip" />
+        </dev.mycam.ui.glass.GlassView>
+    </FrameLayout>
+
+    <!-- Camera controls: a glass sheet over the bottom controls. -->
+    <dev.mycam.ui.camera.QuickSettingsPanel
+        android:id="@+id/settings_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="8dp"
+        android:visibility="gone" />
+
+    <!-- Shown when the camera permission is missing. -->
+    <LinearLayout
+        android:id="@+id/permission_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_camera" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="@string/permission_title"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.15"
+            android:text="@string/permission_body"
+            android:textColor="@color/ios_label_secondary"
+            android:textSize="15sp" />
+
+        <dev.mycam.ui.glass.GlassView
+            android:id="@+id/permission_button"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="28dp"
+            app:glassInteractive="true">
+
+            <TextView
+                android:id="@+id/permission_button_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-medium"
+                android:paddingHorizontal="28dp"
+                android:text="@string/permission_button"
+                android:textColor="@color/ios_yellow"
+                android:textSize="16sp" />
+        </dev.mycam.ui.glass.GlassView>
+    </LinearLayout>
+</FrameLayout>

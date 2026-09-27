@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The pager is inserted at index 1 by ViewerActivity; insets are applied in code. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false">
+
+    <!-- Fades out while the photo is dragged down to close. -->
+    <View
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black" />
+
+    <FrameLayout
+        android:id="@+id/chrome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false">
+
+        <View
+            android:id="@+id/top_scrim"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/scrim_top" />
+
+        <FrameLayout
+            android:id="@+id/top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:clipChildren="false"
+            android:paddingHorizontal="16dp">
+
+            <dev.mycam.ui.glass.GlassView
+                android:id="@+id/back_button"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_gravity="start|center_vertical"
+                android:contentDescription="@string/back"
+                app:glassInteractive="true">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_chevron_left" />
+            </dev.mycam.ui.glass.GlassView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:shadowColor="#80000000"
+                    android:shadowRadius="6"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/title_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:shadowColor="#80000000"
+                    android:shadowRadius="6"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <dev.mycam.ui.glass.GlassView
+                android:id="@+id/library_button"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_gravity="end|center_vertical"
+                android:contentDescription="@string/library"
+                app:glassInteractive="true">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_grid" />
+            </dev.mycam.ui.glass.GlassView>
+        </FrameLayout>
+
+        <!-- Video: play/pause, scrubber, time -->
+        <dev.mycam.ui.glass.GlassView
+            android:id="@+id/video_controls"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom"
+            android:layout_marginHorizontal="16dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="6dp">
+
+                <ImageView
+                    android:id="@+id/play_pause"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="?android:selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/play"
+                    android:padding="7dp"
+                    android:src="@drawable/ic_play" />
+
+                <SeekBar
+                    android:id="@+id/scrubber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="1000"
+                    android:progressBackgroundTint="#59FFFFFF"
+                    android:progressTint="@color/white"
+                    android:thumbTint="@color/white" />
+
+                <TextView
+                    android:id="@+id/video_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:fontFeatureSettings="tnum"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </dev.mycam.ui.glass.GlassView>
+
+        <!-- Bottom toolbar -->
+        <FrameLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_gravity="bottom"
+            android:clipChildren="false"
+            android:paddingHorizontal="16dp">
+
+            <dev.mycam.ui.glass.GlassView
+                android:id="@+id/share_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="start|center_vertical"
+                android:contentDescription="@string/share"
+                app:glassInteractive="true">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_share" />
+            </dev.mycam.ui.glass.GlassView>
+
+            <dev.mycam.ui.glass.GlassView
+                android:id="@+id/center_group"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_gravity="center">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="6dp">
+
+                    <ImageView
+                        android:id="@+id/favorite_button"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="?android:selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/favorite"
+                        android:padding="13dp"
+                        android:src="@drawable/ic_heart" />
+
+                    <ImageView
+                        android:id="@+id/info_button"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="?android:selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/info"
+                        android:padding="13dp"
+                        android:src="@drawable/ic_info" />
+
+                    <ImageView
+                        android:id="@+id/edit_button"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="?android:selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/edit"
+                        android:padding="13dp"
+                        android:src="@drawable/ic_edit" />
+                </LinearLayout>
+            </dev.mycam.ui.glass.GlassView>
+
+            <dev.mycam.ui.glass.GlassView
+                android:id="@+id/delete_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end|center_vertical"
+                android:contentDescription="@string/delete"
+                app:glassInteractive="true">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_trash" />
+            </dev.mycam.ui.glass.GlassView>
+        </FrameLayout>
+    </FrameLayout>
+
+    <dev.mycam.ui.viewer.InfoSheet
+        android:id="@+id/info_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="10dp"
+        android:visibility="gone" />
+</FrameLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="GlassView">
+        <!-- Corner radius; leave unset for a capsule/circle. -->
+        <attr name="glassCornerRadius" format="dimension" />
+        <attr name="glassStyle" format="enum">
+            <!-- Over photos/preview: bright, saturated lens. -->
+            <enum name="regular" value="0" />
+            <!-- Larger surfaces that carry text: darker for legibility. -->
+            <enum name="dark" value="1" />
+            <!-- Nearly invisible, only the rim and the lensing. -->
+            <enum name="clear" value="2" />
+        </attr>
+        <!-- Grows and glows under the finger. -->
+        <attr name="glassInteractive" format="boolean" />
+    </declare-styleable>
+</resources>

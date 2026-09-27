@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A glass camera lens: outer barrel, glass element, highlight. Safe zone is the central 66dp. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Barrel -->
+    <path android:pathData="M54,54m-26,0a26,26 0,1 1,52 0a26,26 0,1 1,-52 0">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:endX="54"
+                android:endY="80"
+                android:startX="54"
+                android:startY="28"
+                android:type="linear">
+                <item android:color="#FFE5E5EA" android:offset="0" />
+                <item android:color="#FF8E8E93" android:offset="1" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path
+        android:fillColor="#FF1C1C1E"
+        android:pathData="M54,54m-21,0a21,21 0,1 1,42 0a21,21 0,1 1,-42 0" />
+    <!-- Glass element -->
+    <path android:pathData="M54,54m-15,0a15,15 0,1 1,30 0a15,15 0,1 1,-30 0">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:centerX="49"
+                android:centerY="48"
+                android:gradientRadius="20"
+                android:type="radial">
+                <item android:color="#FF5E8BFF" android:offset="0" />
+                <item android:color="#FF2B2F7A" android:offset="0.55" />
+                <item android:color="#FF0A0A14" android:offset="1" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <!-- Highlights -->
+    <path
+        android:fillColor="#B3FFFFFF"
+        android:pathData="M48,47m-4,0a4,4 0,1 1,8 0a4,4 0,1 1,-8 0" />
+    <path
+        android:fillColor="#59FFFFFF"
+        android:pathData="M60,61m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0" />
+    <!-- Yellow accent -->
+    <path
+        android:fillColor="#FFFFD60A"
+        android:pathData="M73,34m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0" />
+</vector>
